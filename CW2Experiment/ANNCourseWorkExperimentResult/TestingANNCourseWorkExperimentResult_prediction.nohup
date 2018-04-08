@@ -1,0 +1,59 @@
+
+the side H is not compatible with the selected stride of 46
+img_h 584, patch_h 48, stride_h 46
+(img_h - patch_h) MOD stride_h: 30
+So the H dim will be padded with additional 16 pixels
+the side W is not compatible with the selected stride of 46
+img_w 565, patch_w 48, stride_w 46
+(img_w - patch_w) MOD stride_w: 11
+So the W dim will be padded with additional 35 pixels
+new full images shape: 
+(10, 1, 600, 600)
+
+test images shape:
+(10, 1, 600, 600)
+
+test mask shape:
+(10, 1, 584, 565)
+test images range (min-max): 0.0 - 1.0
+test masks are within 0-1
+
+Number of patches on h : 13
+Number of patches on w : 13
+number of patches per image: 169, totally for this dataset: 1690
+
+test PATCHES images shape:
+(1690, 1, 48, 48)
+test PATCHES images range (min-max): 0.0 - 1.0
+predicted images size :
+(1690, 2304, 2)
+N_patches_h: 13
+N_patches_w: 13
+N_patches_img: 169
+According to the dimension inserted, there are 10 full images (of 600x600 each)
+(10, 1, 600, 600)
+Orig imgs shape: (10, 1, 584, 565)
+pred imgs shape: (10, 1, 584, 565)
+Gtruth imgs shape: (10, 1, 584, 565)
+
+
+========  Evaluate the results =======================
+Calculating results only inside the FOV:
+y scores pixels: 2269112 (radius 270: 270*270*3.14==228906), including background around retina: 3299600 (584*565==329960)
+y true pixels: 2269112 (radius 270: 270*270*3.14==228906), including background around retina: 3299600 (584*565==329960)
+
+Area under the ROC curve: 0.7024789612104095
+
+Area under Precision-Recall curve: 0.29859295758516197
+
+Confusion matrix:  Costum threshold (for positive) of 0.5
+[[1978417       0]
+ [ 290695       0]]
+Global Accuracy: 0.8718904135185923
+Specificity: 1.0
+Sensitivity: 0.0
+Precision: 0
+
+Jaccard similarity score: 0.8718904135185923
+
+F1 score (F-measure): 0.0
