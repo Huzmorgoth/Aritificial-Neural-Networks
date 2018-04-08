@@ -1,0 +1,67 @@
+/usr/local/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+Using TensorFlow backend.
+
+train images/masks shape:
+(20, 1, 565, 565)
+train images range (min-max): 0.0 - 1.0
+train masks are within 0-1
+
+patches per full image: 160
+
+train PATCHES images/masks shape:
+(3200, 1, 72, 72)
+train PATCHES images range (min-max): 0.0 - 1.0
+2018-03-30 08:15:31.249788: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+./src/retinaNN_training.py:66: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=Tensor("in..., outputs=Tensor("ac...)`
+  model = Model(input=inputs, output=conv7)
+Check: final output of the network:
+(None, 5184, 2)
+./src/retinaNN_training.py:191: UserWarning: The `nb_epoch` argument in `fit` has been renamed `epochs`.
+  model.fit(patches_imgs_train, patches_masks_train, nb_epoch=N_epochs, batch_size=batch_size, verbose=2, shuffle=True, validation_split=0.1, callbacks=[checkpointer])
+Train on 2880 samples, validate on 320 samples
+Epoch 1/100
+ - 1902s - loss: 0.4357 - acc: 0.8897 - val_loss: 0.3569 - val_acc: 0.8965
+
+Epoch 00001: val_loss improved from inf to 0.35691, saving model to ./ANNCourseWorkExperimentResult/ANNCourseWorkExperimentResult_best_weights.h5
+Epoch 2/100
+ - 5449s - loss: 0.3655 - acc: 0.8899 - val_loss: 0.3453 - val_acc: 0.8965
+
+Epoch 00002: val_loss improved from 0.35691 to 0.34527, saving model to ./ANNCourseWorkExperimentResult/ANNCourseWorkExperimentResult_best_weights.h5
+Epoch 3/100
+ - 2522s - loss: 0.3571 - acc: 0.8899 - val_loss: 0.3380 - val_acc: 0.8965
+
+Epoch 00003: val_loss improved from 0.34527 to 0.33801, saving model to ./ANNCourseWorkExperimentResult/ANNCourseWorkExperimentResult_best_weights.h5
+Epoch 4/100
+ - 1668s - loss: 0.3503 - acc: 0.8899 - val_loss: 0.3298 - val_acc: 0.8965
+
+Epoch 00004: val_loss improved from 0.33801 to 0.32983, saving model to ./ANNCourseWorkExperimentResult/ANNCourseWorkExperimentResult_best_weights.h5
+Epoch 5/100
+ - 1631s - loss: 0.3413 - acc: 0.8899 - val_loss: 0.3185 - val_acc: 0.8965
+
+Epoch 00005: val_loss improved from 0.32983 to 0.31847, saving model to ./ANNCourseWorkExperimentResult/ANNCourseWorkExperimentResult_best_weights.h5
+Epoch 6/100
+ - 1943s - loss: 0.3320 - acc: 0.8899 - val_loss: 0.3109 - val_acc: 0.8965
+
+Epoch 00006: val_loss improved from 0.31847 to 0.31085, saving model to ./ANNCourseWorkExperimentResult/ANNCourseWorkExperimentResult_best_weights.h5
+Epoch 7/100
+Traceback (most recent call last):
+  File "./src/retinaNN_training.py", line 191, in <module>
+    model.fit(patches_imgs_train, patches_masks_train, nb_epoch=N_epochs, batch_size=batch_size, verbose=2, shuffle=True, validation_split=0.1, callbacks=[checkpointer])
+  File "/usr/local/lib/python3.6/site-packages/keras/engine/training.py", line 1705, in fit
+    validation_steps=validation_steps)
+  File "/usr/local/lib/python3.6/site-packages/keras/engine/training.py", line 1235, in _fit_loop
+    outs = f(ins_batch)
+  File "/usr/local/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py", line 2478, in __call__
+    **self.session_kwargs)
+  File "/usr/local/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 905, in run
+    run_metadata_ptr)
+  File "/usr/local/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 1137, in _run
+    feed_dict_tensor, options, run_metadata)
+  File "/usr/local/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 1355, in _do_run
+    options, run_metadata)
+  File "/usr/local/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 1361, in _do_call
+    return fn(*args)
+  File "/usr/local/lib/python3.6/site-packages/tensorflow/python/client/session.py", line 1340, in _run_fn
+    target_list, status, run_metadata)
+KeyboardInterrupt
